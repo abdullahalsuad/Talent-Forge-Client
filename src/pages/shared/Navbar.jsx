@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <nav className="bg-white shadow-lg">
@@ -10,42 +15,60 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <a
-              href="/"
+            <NavLink
+              to="/"
               className="text-2xl font-bold text-indigo-600 tracking-tight"
             >
               CareerCode
-            </a>
+            </NavLink>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a
-              href="/"
-              className="text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+          {/* Centered Nav Links */}
+          <div className="hidden md:flex flex-grow justify-center items-center space-x-8">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-base font-medium text-indigo-600"
+                  : "text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+              }
             >
               Home
-            </a>
-            <a
-              href="/jobs"
-              className="text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+            </NavLink>
+            <NavLink
+              to="/jobs"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-base font-medium text-indigo-600"
+                  : "text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+              }
             >
               All Jobs
-            </a>
-            <a
-              href="/my-applications"
-              className="text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+            </NavLink>
+            <NavLink
+              to="/my-applications"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-base font-medium text-indigo-600"
+                  : "text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+              }
             >
               My Applications
-            </a>
-            <a
-              href="/my-jobs"
-              className="text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+            </NavLink>
+            <NavLink
+              to="/my-jobs"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-base font-medium text-indigo-600"
+                  : "text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+              }
             >
               My Jobs
-            </a>
+            </NavLink>
+          </div>
 
-            {/* User Avatar with Dropdown */}
+          {/* User Avatar / Right Section */}
+          <div className="hidden md:flex items-center">
             <div className="relative">
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
@@ -78,18 +101,28 @@ const Navbar = () => {
               {/* Dropdown Menu */}
               {isUserMenuOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 overflow-hidden border border-gray-200">
-                  <a
-                    href="/profile"
-                    className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700"
+                  <NavLink
+                    to="/profile"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "block px-4 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-50"
+                        : "block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700"
+                    }
+                    onClick={() => setIsUserMenuOpen(false)}
                   >
                     Profile
-                  </a>
-                  <a
-                    href="/settings"
-                    className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700"
+                  </NavLink>
+                  <NavLink
+                    to="/settings"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "block px-4 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-50"
+                        : "block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700"
+                    }
+                    onClick={() => setIsUserMenuOpen(false)}
                   >
                     Settings
-                  </a>
+                  </NavLink>
                   <hr className="border-t border-gray-200 my-1" />
                   <button className="block w-full text-left px-4 py-3 text-sm font-medium text-red-600 hover:bg-red-50">
                     Logout
@@ -110,7 +143,6 @@ const Navbar = () => {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 {isMenuOpen ? (
                   <path
@@ -137,52 +169,76 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 pb-3">
           <div className="flex flex-col space-y-3 px-4 pt-3">
-            <a
-              href="/"
-              className="py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
-              onClick={() => setIsMenuOpen(false)}
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "py-3 text-base font-medium text-indigo-600"
+                  : "py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+              }
+              onClick={handleLinkClick}
             >
               Home
-            </a>
-            <a
-              href="/jobs"
-              className="py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
-              onClick={() => setIsMenuOpen(false)}
+            </NavLink>
+            <NavLink
+              to="/jobs"
+              className={({ isActive }) =>
+                isActive
+                  ? "py-3 text-base font-medium text-indigo-600"
+                  : "py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+              }
+              onClick={handleLinkClick}
             >
               All Jobs
-            </a>
-            <a
-              href="/my-applications"
-              className="py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
-              onClick={() => setIsMenuOpen(false)}
+            </NavLink>
+            <NavLink
+              to="/my-applications"
+              className={({ isActive }) =>
+                isActive
+                  ? "py-3 text-base font-medium text-indigo-600"
+                  : "py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+              }
+              onClick={handleLinkClick}
             >
               My Applications
-            </a>
-            <a
-              href="/my-jobs"
-              className="py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
-              onClick={() => setIsMenuOpen(false)}
+            </NavLink>
+            <NavLink
+              to="/my-jobs"
+              className={({ isActive }) =>
+                isActive
+                  ? "py-3 text-base font-medium text-indigo-600"
+                  : "py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+              }
+              onClick={handleLinkClick}
             >
               My Jobs
-            </a>
+            </NavLink>
             <div className="pt-3 border-t border-gray-200">
-              <a
-                href="/profile"
-                className="block py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
-                onClick={() => setIsMenuOpen(false)}
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  isActive
+                    ? "block py-3 text-base font-medium text-indigo-600"
+                    : "block py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+                }
+                onClick={handleLinkClick}
               >
                 Profile
-              </a>
-              <a
-                href="/settings"
-                className="block py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
-                onClick={() => setIsMenuOpen(false)}
+              </NavLink>
+              <NavLink
+                to="/settings"
+                className={({ isActive }) =>
+                  isActive
+                    ? "block py-3 text-base font-medium text-indigo-600"
+                    : "block py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+                }
+                onClick={handleLinkClick}
               >
                 Settings
-              </a>
+              </NavLink>
               <button
                 className="block w-full text-left py-3 text-base font-medium text-red-600 hover:text-red-800"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={handleLinkClick}
               >
                 Logout
               </button>
