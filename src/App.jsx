@@ -2,6 +2,7 @@ import { Outlet } from "react-router";
 import "./App.css";
 import Navbar from "./pages/shared/Navbar";
 import Footer from "./pages/shared/Footer";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -22,6 +23,19 @@ function App() {
       <footer>
         <Footer />
       </footer>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
