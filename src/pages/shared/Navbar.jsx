@@ -72,7 +72,7 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex items-center space-x-3 focus:outline-none"
+                className="flex items-center space-x-3 focus:outline-none cursor-pointerF"
               >
                 <img
                   src="https://i.imgur.com/6QbX6yA.png "
@@ -102,7 +102,7 @@ const Navbar = () => {
               {isUserMenuOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 overflow-hidden border border-gray-200">
                   <NavLink
-                    to="/profile"
+                    to="/add-job"
                     className={({ isActive }) =>
                       isActive
                         ? "block px-4 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-50"
@@ -110,10 +110,10 @@ const Navbar = () => {
                     }
                     onClick={() => setIsUserMenuOpen(false)}
                   >
-                    Profile
+                    Post A Job
                   </NavLink>
                   <NavLink
-                    to="/settings"
+                    to="/my-applications"
                     className={({ isActive }) =>
                       isActive
                         ? "block px-4 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-50"
@@ -121,7 +121,7 @@ const Navbar = () => {
                     }
                     onClick={() => setIsUserMenuOpen(false)}
                   >
-                    Settings
+                    My Applications
                   </NavLink>
                   <hr className="border-t border-gray-200 my-1" />
                   <button className="block w-full text-left px-4 py-3 text-sm font-medium text-red-600 hover:bg-red-50">
@@ -167,7 +167,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 pb-3">
+        <div className="md:hidden bg-white border-t border-gray-200 pb-3 ">
           <div className="flex flex-col space-y-3 px-4 pt-3">
             <NavLink
               to="/"
@@ -215,7 +215,7 @@ const Navbar = () => {
             </NavLink>
             <div className="pt-3 border-t border-gray-200">
               <NavLink
-                to="/profile"
+                to="/add-job"
                 className={({ isActive }) =>
                   isActive
                     ? "block py-3 text-base font-medium text-indigo-600"
@@ -223,10 +223,11 @@ const Navbar = () => {
                 }
                 onClick={handleLinkClick}
               >
-                Profile
+                Post A Job
               </NavLink>
+
               <NavLink
-                to="/settings"
+                to="/my-applications"
                 className={({ isActive }) =>
                   isActive
                     ? "block py-3 text-base font-medium text-indigo-600"
@@ -234,7 +235,7 @@ const Navbar = () => {
                 }
                 onClick={handleLinkClick}
               >
-                Settings
+                My Applications
               </NavLink>
               <button
                 className="block w-full text-left py-3 text-base font-medium text-red-600 hover:text-red-800"
