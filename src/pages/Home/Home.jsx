@@ -3,10 +3,10 @@ import { Link } from "react-router";
 
 const Home = () => {
   return (
-    <div className=" text-gray-700">
+    <div className=" text-gray-700 mt-20">
       {/* Hero Section */}
-      <section className="relative bg-white py-20 px-6 md:py-32 overflow-hidden  rounded-md">
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-white z-0"></div>
+      <section className="relative bg-white  py-20 px-6 md:py-32 overflow-hidden  rounded-md">
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-white z-0 border border-gray-100 rounded-md"></div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="inline-block px-4 py-2 bg-gray-800 rounded-full mb-6 border border-gray-500 animate-pulse ">
             <p className="text-sm font-medium text-white ">
@@ -42,8 +42,8 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-40">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-20 my-40">
+        <div className="max-w-7xl mx-auto px-6 ">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Why Choose Talent Forge
@@ -92,13 +92,13 @@ const Home = () => {
       </section>
 
       {/* Popular Job Categories */}
-      <section className="py-40 bg-gray-100 rounded-md border border-gray-200">
+      <section className="py-20 bg-gradient-to-r  from-gray-900 via-gray-500 to-gray-900 rounded-md border border-gray-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Popular Job Categories
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-white max-w-2xl mx-auto">
               Explore opportunities in the most in-demand fields
             </p>
           </div>
@@ -123,7 +123,7 @@ const Home = () => {
             ].map((cat, i) => (
               <div
                 key={i}
-                className="bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-gray-200 text-center cursor-pointer"
+                className="bg-white p-5 rounded-md shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-gray-200 text-center cursor-pointer"
               >
                 <p className="text-gray-700 font-medium hover:text-gray-900 transition">
                   {cat}
@@ -135,7 +135,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-100 border border-gray-200 my-40 rounded-xl">
+      <section className="py-20 bg-gradient-to-r from-gray-100 to-gray-200   border border-gray-200 my-40 rounded-xl">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
