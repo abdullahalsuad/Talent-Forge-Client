@@ -26,14 +26,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className=" fixed top-0 left-0 w-full bg-white shadow-lg z-50">
+    <nav className=" fixed top-0 left-0 w-full bg-white shadow-lg z-50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
             <NavLink
               to="/"
-              className="text-2xl font-bold text-indigo-600 tracking-tight"
+              className="text-2xl font-bold text-teal-700 tracking-tight"
             >
               Talent Forge
             </NavLink>
@@ -45,8 +45,8 @@ const Navbar = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-base font-medium text-indigo-600"
-                  : "text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+                  ? "text-base font-medium text-teal-700"
+                  : "text-base font-medium text-gray-700 hover:text-teal-700 transition"
               }
             >
               Home
@@ -55,8 +55,8 @@ const Navbar = () => {
               to="/jobs"
               className={({ isActive }) =>
                 isActive
-                  ? "text-base font-medium text-indigo-600"
-                  : "text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+                  ? "text-base font-medium text-teal-700"
+                  : "text-base font-medium text-gray-700 hover:text-teal-700 transition"
               }
             >
               All Jobs
@@ -65,8 +65,8 @@ const Navbar = () => {
               to="/my-applications"
               className={({ isActive }) =>
                 isActive
-                  ? "text-base font-medium text-indigo-600"
-                  : "text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+                  ? "text-base font-medium text-teal-700"
+                  : "text-base font-medium text-gray-700 hover:text-teal-700 transition"
               }
             >
               My Applications
@@ -75,8 +75,8 @@ const Navbar = () => {
               to="/my-jobs"
               className={({ isActive }) =>
                 isActive
-                  ? "text-base font-medium text-indigo-600"
-                  : "text-base font-medium text-gray-700 hover:text-indigo-600 transition"
+                  ? "text-base font-medium text-teal-700"
+                  : "text-base font-medium text-gray-700 hover:text-teal-700 transition"
               }
             >
               My Jobs
@@ -94,7 +94,7 @@ const Navbar = () => {
                   <img
                     src={user?.photoURL}
                     alt="User Avatar"
-                    className="w-10 h-10 rounded-full object-cover border-2 border-indigo-500"
+                    className="w-10 h-10 rounded-full object-cover border-2 border-teal-700"
                   />
                   <span className="text-base font-medium text-gray-800">
                     {user?.displayName}
@@ -118,7 +118,7 @@ const Navbar = () => {
                 <>
                   <Link
                     to="/login"
-                    className="px-5 py-2.5 text-sm font-medium text-black bg-white border border-gray-700 rounded-md hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition mr-4 cursor-pointer"
+                    className="px-5 py-2.5 text-sm font-medium text-black bg-white border border-gray-700 rounded-md hover:bg-teal-70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition mr-4 cursor-pointer"
                   >
                     Login
                   </Link>
@@ -142,8 +142,8 @@ const Navbar = () => {
                         to="/add-job"
                         className={({ isActive }) =>
                           isActive
-                            ? "block px-4 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-50"
-                            : "block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700"
+                            ? "block px-4 py-3 text-sm font-medium text-teal-700 hover:bg-teal-70"
+                            : "block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-teal-70 hover:text-teal-700"
                         }
                         onClick={() => setIsUserMenuOpen(false)}
                       >
@@ -153,8 +153,8 @@ const Navbar = () => {
                         to="/my-applications"
                         className={({ isActive }) =>
                           isActive
-                            ? "block px-4 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-50"
-                            : "block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700"
+                            ? "block px-4 py-3 text-sm font-medium text-teal-700 hover:bg-teal-70"
+                            : "block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-teal-70 hover:text-teal-700"
                         }
                         onClick={() => setIsUserMenuOpen(false)}
                       >
@@ -215,8 +215,8 @@ const Navbar = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "py-3 text-base font-medium text-indigo-600"
-                  : "py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+                  ? "py-3 text-base font-medium text-teal-700"
+                  : "py-3 text-base font-medium text-gray-700 hover:text-teal-700"
               }
               onClick={handleLinkClick}
             >
@@ -226,8 +226,8 @@ const Navbar = () => {
               to="/jobs"
               className={({ isActive }) =>
                 isActive
-                  ? "py-3 text-base font-medium text-indigo-600"
-                  : "py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+                  ? "py-3 text-base font-medium text-teal-700"
+                  : "py-3 text-base font-medium text-gray-700 hover:text-teal-700"
               }
               onClick={handleLinkClick}
             >
@@ -237,8 +237,8 @@ const Navbar = () => {
               to="/my-applications"
               className={({ isActive }) =>
                 isActive
-                  ? "py-3 text-base font-medium text-indigo-600"
-                  : "py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+                  ? "py-3 text-base font-medium text-teal-700"
+                  : "py-3 text-base font-medium text-gray-700 hover:text-teal-700"
               }
               onClick={handleLinkClick}
             >
@@ -248,8 +248,8 @@ const Navbar = () => {
               to="/my-jobs"
               className={({ isActive }) =>
                 isActive
-                  ? "py-3 text-base font-medium text-indigo-600"
-                  : "py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+                  ? "py-3 text-base font-medium text-teal-700"
+                  : "py-3 text-base font-medium text-gray-700 hover:text-teal-700"
               }
               onClick={handleLinkClick}
             >
@@ -262,8 +262,8 @@ const Navbar = () => {
                     to="/add-job"
                     className={({ isActive }) =>
                       isActive
-                        ? "block py-3 text-base font-medium text-indigo-600"
-                        : "block py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+                        ? "block py-3 text-base font-medium text-teal-700"
+                        : "block py-3 text-base font-medium text-gray-700 hover:text-teal-700"
                     }
                     onClick={handleLinkClick}
                   >
@@ -273,8 +273,8 @@ const Navbar = () => {
                     to="/my-applications"
                     className={({ isActive }) =>
                       isActive
-                        ? "block py-3 text-base font-medium text-indigo-600"
-                        : "block py-3 text-base font-medium text-gray-700 hover:text-indigo-600"
+                        ? "block py-3 text-base font-medium text-teal-700"
+                        : "block py-3 text-base font-medium text-gray-700 hover:text-teal-700"
                     }
                     onClick={handleLinkClick}
                   >
@@ -291,7 +291,7 @@ const Navbar = () => {
                 <>
                   <Link
                     to="/login"
-                    className="px-5 py-2.5 text-sm font-medium text-black bg-white border border-gray-700 rounded-md hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition mr-4"
+                    className="px-5 py-2.5 text-sm font-medium text-black bg-white border border-gray-700 rounded-md hover:bg-teal-70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700 transition mr-4"
                   >
                     Login
                   </Link>

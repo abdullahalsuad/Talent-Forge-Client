@@ -187,9 +187,9 @@ export const AllJobs = () => {
           {/* Job Card Example - Repeated for demo */}
           {[...Array(6)].map((_, i) => (
             <Link key={i} to={`/jobs/details/${i + 1}`} className="block group">
-              <div className="bg-white shadow-md hover:shadow-lg transition rounded-lg overflow-hidden border border-gray-200 group-hover:border-indigo-500 h-full">
+              <div className="bg-white shadow-md hover:shadow-lg transition rounded-lg overflow-hidden border border-gray-200 group-hover:border-teal-700 h-full">
                 <div className="p-6">
-                  <h2 className="text-xl font-semibold text-gray-800 group-hover:text-indigo-600">
+                  <h2 className="text-xl font-semibold text-gray-800 group-hover:text-teal-700">
                     Frontend Developer
                   </h2>
                   <p className="text-gray-600">TechNova Inc.</p>
