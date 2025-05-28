@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
         {/* Company Info */}
         <div className="col-span-1 lg:col-span-2">
-          <h2 className="text-2xl font-bold text-white mb-4">CareerCode</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">Talent Forge</h2>
           <p className="text-gray-400 mb-4 text-sm md:text-base">
             Helping job seekers find their dream jobs and employers find top
             talent.
@@ -149,7 +149,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800 py-4 text-center text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} CareerCode. All rights reserved.
+        &copy; {new Date().getFullYear()} Talent Forge. All rights reserved.
       </div>
     </footer>
   );

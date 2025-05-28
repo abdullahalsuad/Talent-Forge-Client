@@ -46,7 +46,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose CareerCode
+              Why Choose Talent Forge
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               We've built the most intuitive platform to connect talent with
@@ -149,7 +149,7 @@ const Home = () => {
             {[
               {
                 quote:
-                  "CareerCode helped me land my dream job within 2 weeks. The UI is clean and intuitive.",
+                  "Talent Forge helped me land my dream job within 2 weeks. The UI is clean and intuitive.",
                 author: "Sarah M.",
                 role: "Software Engineer",
               },
@@ -190,7 +190,7 @@ const Home = () => {
           </h2>
           <p className="text-lg text-gray-300 mb-8">
             Join thousands of job seekers who landed their dream roles through
-            CareerCode.
+            Talent Forge.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link

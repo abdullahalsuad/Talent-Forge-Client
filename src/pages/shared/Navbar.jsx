@@ -35,7 +35,7 @@ const Navbar = () => {
               to="/"
               className="text-2xl font-bold text-indigo-600 tracking-tight"
             >
-              CareerCode
+              Talent Forge
             </NavLink>
           </div>
 
