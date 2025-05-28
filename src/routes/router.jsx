@@ -9,6 +9,7 @@ import { AllJobs } from "../pages/jobs/AllJobs";
 import PostAJob from "../pages/post-jobs/PostAJob";
 import PrivateRoute from "./PrivateRoute";
 import JobDetails from "../pages/jobs/JobDetails";
+import AuthLayout from "../components/authentication/AuthLayout";
 
 const router = createBrowserRouter([
   {
@@ -30,11 +31,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Register />,
+        element: (
+          <AuthLayout>
+            <Register />
+          </AuthLayout>
+        ),
       },
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <AuthLayout>
+            <Login />
+          </AuthLayout>
+        ),
       },
       {
         path: "/add-job",
