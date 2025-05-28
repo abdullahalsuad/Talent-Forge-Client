@@ -14,7 +14,7 @@ function App() {
 
       {/* Main Content */}
       <main className="flex-grow py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-10/12 mx-auto">
           <Outlet />
         </div>
       </main>

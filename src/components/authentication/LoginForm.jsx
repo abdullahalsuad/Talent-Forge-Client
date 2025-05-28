@@ -31,12 +31,7 @@ const LoginForm = ({
             </p>
           </div>
 
-          <form
-            className="mt-8 space-y-6"
-            action="#"
-            method="POST"
-            onSubmit={handleSignin}
-          >
+          <form className="mt-8 space-y-6" onSubmit={handleSignin}>
             {/* Email Address */}
             <div>
               <label

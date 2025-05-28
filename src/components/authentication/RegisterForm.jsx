@@ -3,7 +3,14 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { LuEye } from "react-icons/lu";
 
-const RegisterForm = ({ showPassword, setShowPassword }) => {
+const RegisterForm = ({
+  showPassword,
+  setShowPassword,
+  handleRegistration,
+  error,
+  isLoading,
+  handleGoogleSignIn,
+}) => {
   return (
     <>
       <div className="flex items-center justify-center my-20  py-12 px-4   sm:px-6 lg:px-8">
@@ -23,7 +30,7 @@ const RegisterForm = ({ showPassword, setShowPassword }) => {
             </p>
           </div>
 
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6" onSubmit={handleRegistration}>
             {/* Full Name */}
             <div>
               <label
@@ -38,7 +45,7 @@ const RegisterForm = ({ showPassword, setShowPassword }) => {
                 type="text"
                 autoComplete="name"
                 required
-                className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
                 placeholder="John Doe"
               />
             </div>
@@ -57,8 +64,25 @@ const RegisterForm = ({ showPassword, setShowPassword }) => {
                 type="email"
                 autoComplete="email"
                 required
-                className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
                 placeholder="you@example.com"
+              />
+            </div>
+
+            {/* Photo URL Input */}
+            <div className="mb-5">
+              <label
+                htmlFor="photoURL"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                Photo URL
+              </label>
+              <input
+                id="photoURL"
+                type="url"
+                name="photoURL"
+                placeholder="https://example.com/photo.jpg "
+                className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
             </div>
 
@@ -77,7 +101,7 @@ const RegisterForm = ({ showPassword, setShowPassword }) => {
                   type={showPassword ? "text" : "password"}
                   autoComplete="new-password"
                   required
-                  className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  className="block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
                   placeholder="••••••••"
                 />
                 <button
@@ -109,6 +133,7 @@ const RegisterForm = ({ showPassword, setShowPassword }) => {
 
             {/* Google Button */}
             <button
+              onClick={handleGoogleSignIn}
               type="button"
               className="w-full flex justify-center items-center gap-2 py-3 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 cursor-pointer"
             >
@@ -118,11 +143,19 @@ const RegisterForm = ({ showPassword, setShowPassword }) => {
 
             {/* Submit Button */}
             <div>
+              {error && (
+                <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
+              )}
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#101828] hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 cursor-pointer"
+                disabled={isLoading}
+                className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700 ${
+                  isLoading
+                    ? "cursor-not-allowed bg-gray-400"
+                    : "cursor-pointer bg-gray-900 hover:bg-gray-800"
+                } `}
               >
-                Create Account
+                {isLoading ? "Loading...." : " Create Account"}
               </button>
             </div>
           </form>
