@@ -14,11 +14,10 @@ export const AllJobs = () => {
         </div>
 
         {/* Filters & Search */}
-        {/* Filters & Search */}
         <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
           {/* Search Bar with Icon */}
           <div className="relative p-6 border-b border-gray-100">
-            <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
+            <div className="absolute inset-y-0 left-10 flex items-center pointer-events-none">
               <svg
                 className="h-5 w-5 text-gray-400"
                 fill="none"
