@@ -24,8 +24,6 @@ const JobsDataProvider = ({ children }) => {
     fetchAllJobs();
   }, []);
 
-   
-
   const data = { loading, jobsData };
 
   return <JobsDataContext value={data}>{children}</JobsDataContext>;

@@ -1,11 +1,16 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const SingleJobCard = ({ jobData }) => {
-  console.log(jobData);
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate(`/jobs/details/${jobData._id}`);
+  };
 
   return (
     <>
-      <Link to={`/jobs/details/${jobData._id}`} className="block group">
+      <div onClick={handleCardClick} className="block group">
         <div className="bg-white shadow-md hover:shadow-lg transition rounded-lg overflow-hidden border border-gray-200 group-hover:border-teal-700 h-full">
           <div className="p-6">
             <h2 className="text-xl font-semibold text-gray-800 group-hover:text-teal-700">
@@ -33,7 +38,7 @@ const SingleJobCard = ({ jobData }) => {
             </div>
           </div>
         </div>
-      </Link>
+      </div>
     </>
   );
 };
