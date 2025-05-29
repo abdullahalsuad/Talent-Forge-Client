@@ -1,7 +1,5 @@
-import React from "react";
-import { Link } from "react-router";
-import AllJobsCard from "../../components/all-jobs/AllJobsCard";
 import JobsFilters from "../../components/all-jobs/JobsFilters";
+import AllJobsCardLayout from "./AllJobsCardLayout";
 
 export const AllJobs = () => {
   return (
@@ -23,10 +21,7 @@ export const AllJobs = () => {
         </div> */}
 
         {/* Job Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Job Card */}
-          <AllJobsCard />
-        </div>
+        <AllJobsCardLayout />
       </div>
     </div>
   );

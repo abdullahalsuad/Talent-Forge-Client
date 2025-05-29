@@ -2,6 +2,7 @@ import React, { use } from "react";
 import PostAJobForm from "../../components/post-a-job/PostAJobForm";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const PostAJob = () => {
   const { user } = use(AuthContext);
@@ -26,17 +27,13 @@ const PostAJob = () => {
       salaryMin: Number(formValues.salaryMin),
       salaryMax: Number(formValues.salaryMax),
     };
-    
 
     // api call
     try {
-      const response = await fetch("http://localhost:3000/api/v1/jobs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(jobData),
-      });
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/jobs",
+        jobData
+      );
 
       if (!response.ok) {
         throw new Error(`Server responded with status: ${response.status}`);
