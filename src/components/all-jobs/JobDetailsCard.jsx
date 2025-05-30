@@ -69,33 +69,6 @@ const JobDetailsCard = ({ jobDetails }) => {
               </div>
             )}
 
-            {/* Company Info */}
-            {jobDetails?.companyName && (
-              <div>
-                <h2 className="text-xl font-semibold text-gray-800 mb-3">
-                  About the Company
-                </h2>
-                <p className="text-gray-700 leading-relaxed">
-                  {jobDetails.companyName} is a company looking for talented
-                  individuals.
-                  {/* You can fetch full description from backend later */}
-                </p>
-              </div>
-            )}
-
-            {/* Responsibilities / Requirements (You can extend this with real data) */}
-            <div>
-              <h2 className="text-xl font-semibold text-gray-800 mb-3">
-                Responsibilities
-              </h2>
-              <ul className="space-y-2 list-disc pl-5 text-gray-700">
-                <li>Develop new user-facing features.</li>
-                <li>Build reusable code and libraries.</li>
-                <li>Ensure technical feasibility of UI/UX designs.</li>
-                <li>Collaborate with other developers and designers.</li>
-              </ul>
-            </div>
-
             {/* Footer Actions */}
             <div className="pt-6 border-t border-gray-200 mt-8 flex justify-between items-center">
               <div>

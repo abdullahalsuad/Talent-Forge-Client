@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import { use } from "react";
 import PostAJobForm from "../../components/post-a-job/PostAJobForm";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-toastify";
@@ -39,8 +39,7 @@ const PostAJob = () => {
         throw new Error(`Server responded with status: ${response.status}`);
       }
 
-      const result = await response.json();
-      if (result._id) {
+      if (response.data._id) {
         toast.success("job  added successfully!");
         // UI update
         e.target.reset();

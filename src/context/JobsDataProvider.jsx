@@ -1,13 +1,18 @@
 /* eslint-disable react-refresh/only-export-components */
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, use, useEffect, useState } from "react";
+import { AuthContext } from "./AuthProvider";
 
 // Creating a context
 export const JobsDataContext = createContext(null);
 
 const JobsDataProvider = ({ children }) => {
-  let [loading, setLoading] = useState(true);
-  let [jobsData, setJobsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [jobsData, setJobsData] = useState([]);
+  const [userJobsData, setUserJobsData] = useState([]);
+
+  const { user } = use(AuthContext);
+  const email = user?.email;
 
   // Get all jobs
   useEffect(() => {
@@ -24,7 +29,25 @@ const JobsDataProvider = ({ children }) => {
     fetchAllJobs();
   }, []);
 
-  const data = { loading, jobsData };
+  // Get all jobs by email
+  useEffect(() => {
+    const fetchAllJobs = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/api/v1/user/${email}`
+        );
+        const jobsData = response.data;
+        setUserJobsData(jobsData);
+        setLoading(false);
+      } catch (error) {
+        console.log("Failed to fetch all jobs", error);
+      }
+    };
+    fetchAllJobs();
+  }, [email]);
+
+  const data = { loading, jobsData, userJobsData };
+  console.log(userJobsData);
 
   return <JobsDataContext value={data}>{children}</JobsDataContext>;
 };

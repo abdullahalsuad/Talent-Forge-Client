@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router";
 
 const PostAJobForm = ({ handleSubmit }) => {
@@ -14,16 +13,16 @@ const PostAJobForm = ({ handleSubmit }) => {
             {/* Photo URL Input */}
             <div className="mb-5">
               <label
-                htmlFor="photoURL"
+                htmlFor="companyPhotoURL"
                 className="block text-gray-700 font-medium mb-2"
               >
                 Photo URL
               </label>
               <input
                 required
-                id="photoURL"
+                id="companyPhotoURL"
                 type="url"
-                name="photoURL"
+                name="companyPhotoURL"
                 placeholder="https://example.com/photo.jpg "
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
