@@ -6,8 +6,6 @@ import SingleJobCardSkeleton from "../../components/all-jobs/SingleJobCardSkelet
 const AllJobsCardLayout = () => {
   const { loading, jobsData } = use(JobsDataContext);
 
-  console.log(jobsData);
-
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
