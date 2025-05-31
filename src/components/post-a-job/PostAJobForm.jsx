@@ -5,19 +5,52 @@ const PostAJobForm = ({ handleSubmit }) => {
     <>
       <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8 my-10">
         <div className="max-w-4xl mx-auto bg-white shadow-md border border-gray-200 rounded-lg p-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Job Details</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">
+            Post a New Job
+          </h2>
 
           <form className="space-y-6" onSubmit={handleSubmit}>
-            {/* Job Title */}
+            {/* Photo URL Input */}
+            <div className="mb-5">
+              <label
+                htmlFor="companyPhotoURL"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                Photo URL
+              </label>
+              <input
+                required
+                id="companyPhotoURL"
+                type="url"
+                name="companyPhotoURL"
+                placeholder="https://example.com/photo.jpg "
+                className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
+              />
+            </div>
+            {/* Position Title */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Job Title <span className="text-red-500">*</span>
+                Position Title
               </label>
               <input
                 required
                 type="text"
                 name="positionTitle"
-                placeholder="e.g. Senior Frontend Developer"
+                placeholder="e.g., Frontend Developer"
+                className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
+              />
+            </div>
+
+            {/* Company Name */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Company Name
+              </label>
+              <input
+                required
+                type="text"
+                name="companyName"
+                placeholder="e.g., TechNova Inc."
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
             </div>
@@ -25,152 +58,133 @@ const PostAJobForm = ({ handleSubmit }) => {
             {/* Location */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Location <span className="text-red-500">*</span>
+                Location
               </label>
               <input
                 required
                 type="text"
                 name="location"
-                placeholder="e.g. San Francisco, CA"
+                placeholder="e.g., Remote / New York, NY"
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               />
             </div>
 
-            {/* Job Type */}
+            {/* Employment Type */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Job Type <span className="text-red-500">*</span>
+                Employment Type
               </label>
               <select
                 required
                 name="employmentType"
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               >
-                <option value="">Select job type</option>
                 <option value="Full-Time">Full-Time</option>
                 <option value="Part-Time">Part-Time</option>
-                <option value="Contract">Contract</option>
                 <option value="Internship">Internship</option>
+                <option value="Project-Based">Project-Based</option>
               </select>
             </div>
 
-            {/* Category */}
+            {/* Work Type */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Category <span className="text-red-500">*</span>
+                Work Type
               </label>
               <select
                 required
-                name="category"
+                name="workType"
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               >
-                <option value="">Select category</option>
-                <option value="Technology">Technology</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Design">Design</option>
-                <option value="Business">Business</option>
+                <option value="On-Site">On-Site</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
               </select>
             </div>
 
             {/* Experience Level */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Experience Level <span className="text-red-500">*</span>
+                Experience Level
               </label>
               <select
                 required
                 name="experienceLevel"
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               >
-                <option value="">Select level</option>
                 <option value="Entry Level">Entry Level</option>
                 <option value="Mid Level">Mid Level</option>
                 <option value="Senior Level">Senior Level</option>
               </select>
             </div>
 
-            {/* Application Deadline */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Application Deadline <span className="text-red-500">*</span>
-              </label>
-              <input
-                required
-                type="date"
-                name="applicationDeadline"
-                placeholder="mm/dd/yyyy"
-                className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
-              />
-            </div>
-
-            {/* Currency and Salary */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Salary Range */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700">
-                  Currency <span className="text-red-500">*</span>
-                </label>
-                <select
-                  required
-                  name="currency"
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
-                >
-                  <option value="USD">USD</option>
-                  <option value="EUR">EUR</option>
-                  <option value="GBP">GBP</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Minimum Salary <span className="text-red-500">*</span>
+                  Minimum Salary ($)
                 </label>
                 <input
                   required
                   type="number"
                   name="salaryMin"
-                  placeholder="50000"
+                  placeholder="e.g. 50000"
                   className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700">
-                  Maximum Salary <span className="text-red-500">*</span>
+                  Maximum Salary ($)
                 </label>
                 <input
                   required
                   type="number"
                   name="salaryMax"
-                  placeholder="80000"
+                  placeholder="e.g. 80000"
                   className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
                 />
               </div>
             </div>
 
-            {/* Job Description */}
+            {/* Application Deadline */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Job Description <span className="text-red-500">*</span>
+                Application Deadline
+              </label>
+              <input
+                required
+                type="date"
+                name="applicationDeadline"
+                className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
+              />
+            </div>
+
+            {/* Description */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Job Description
               </label>
               <textarea
                 required
                 name="description"
                 rows={6}
-                placeholder="Describe the role, what the candidate will be doing..."
+                placeholder="Responsibilities, requirements, etc."
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
               ></textarea>
             </div>
 
-            {/* Company Information */}
+            {/* Apply Button Text */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
-                Company Information <span className="text-red-500">*</span>
+                Apply Method
               </label>
-              <textarea
+              <input
                 required
-                name="aboutCompany"
-                rows={6}
-                placeholder="Tell candidates about your company, culture, values..."
+                type="text"
+                name="applyMethod"
+                placeholder="test@gramil.com"
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C68EFD]"
-              ></textarea>
+              />
             </div>
 
             {/* Action Buttons */}

@@ -13,6 +13,8 @@ const JobsDataProvider = ({ children }) => {
 
   const { user } = use(AuthContext);
   const email = user?.email;
+  const accessToken = user?.accessToken;
+  console.log(accessToken);
 
   // Get all jobs
   useEffect(() => {
@@ -34,7 +36,12 @@ const JobsDataProvider = ({ children }) => {
     const fetchAllJobs = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/user/${email}`
+          `http://localhost:3000/api/v1/user/${email}`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
         );
         const jobsData = response.data;
         setUserJobsData(jobsData);
@@ -44,10 +51,9 @@ const JobsDataProvider = ({ children }) => {
       }
     };
     fetchAllJobs();
-  }, [email]);
+  }, [email, accessToken]);
 
   const data = { loading, jobsData, userJobsData };
-  console.log(userJobsData);
 
   return <JobsDataContext value={data}>{children}</JobsDataContext>;
 };
