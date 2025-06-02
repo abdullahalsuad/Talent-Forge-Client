@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-const JobDetailsCard = ({ jobDetails }) => {
+const JobDetailsCard = ({ jobDetails, setIsModalOpen }) => {
   // Format date helper
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -169,12 +169,12 @@ const JobDetailsCard = ({ jobDetails }) => {
                   </div>
                 ) : (
                   <div className="flex justify-center">
-                    <Link
-                      to={`/application/apply/${jobDetails?._id}`}
+                    <button
+                      onClick={() => setIsModalOpen(true)}
                       className="px-6 py-2 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-md"
                     >
                       Apply Now
-                    </Link>
+                    </button>
                   </div>
                 )}
               </div>

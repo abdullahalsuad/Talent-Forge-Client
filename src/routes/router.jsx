@@ -10,6 +10,7 @@ import PostAJob from "../pages/post-jobs/PostAJob";
 import PrivateRoute from "./PrivateRoute";
 import JobDetails from "../pages/jobs/JobDetails";
 import AuthLayout from "../components/authentication/AuthLayout";
+import ApplyJob from "../components/job-apply/ApplyJob";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,41 @@ const router = createBrowserRouter([
         path: "jobs/details/:id",
         element: <JobDetails />,
       },
+
+      {
+        path: "/add-job",
+        element: (
+          <PrivateRoute>
+            <PostAJob />
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "/apply/:id",
+        element: (
+          <PrivateRoute>
+            <ApplyJob />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-applications",
+        element: (
+          <PrivateRoute>
+            <MyApplications />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-jobs",
+        element: (
+          <PrivateRoute>
+            <MyJobs />
+          </PrivateRoute>
+        ),
+      },
+      // Login and Register
       {
         path: "/register",
         element: (
@@ -43,31 +79,6 @@ const router = createBrowserRouter([
           <AuthLayout>
             <Login />
           </AuthLayout>
-        ),
-      },
-      {
-        path: "/add-job",
-        element: (
-          <PrivateRoute>
-            <PostAJob />
-          </PrivateRoute>
-        ),
-      },
-
-      {
-        path: "/my-jobs",
-        element: (
-          <PrivateRoute>
-            <MyJobs />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/my-applications",
-        element: (
-          <PrivateRoute>
-            <MyApplications />
-          </PrivateRoute>
         ),
       },
     ],

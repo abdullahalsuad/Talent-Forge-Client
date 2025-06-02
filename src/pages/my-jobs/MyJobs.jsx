@@ -4,14 +4,47 @@ import { Link } from "react-router";
 import { FaEdit } from "react-icons/fa";
 import { LuTrash } from "react-icons/lu";
 import { TbFileCv } from "react-icons/tb";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyJobs = () => {
   const { userJobsData } = use(JobsDataContext);
+
+  const axiosSecure = useAxiosSecure();
 
   // Format date helper
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+  // Handling delete
+  const handleDelete = (id) => {
+    console.log(id);
+
+    // alert
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const response = await axiosSecure.delete(`/jobs/${id}`);
+
+          if (response.statusText === "OK") {
+            toast.success("Job deleted successfully");
+          }
+        } catch (error) {
+          console.log("Error from deleting job", error);
+        }
+      }
+    });
   };
 
   return (
@@ -97,6 +130,7 @@ const MyJobs = () => {
                         <FaEdit size={30} />
                       </Link>
                       <button
+                        onClick={() => handleDelete(job._id)}
                         type="button"
                         className="text-red-700 hover:text-red-900 focus:outline-none cursor-pointer"
                       >

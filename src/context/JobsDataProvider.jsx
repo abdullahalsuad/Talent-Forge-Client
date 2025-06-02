@@ -2,6 +2,7 @@
 import axios from "axios";
 import { createContext, use, useEffect, useState } from "react";
 import { AuthContext } from "./AuthProvider";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 // Creating a context
 export const JobsDataContext = createContext(null);
@@ -12,9 +13,7 @@ const JobsDataProvider = ({ children }) => {
   const [userJobsData, setUserJobsData] = useState([]);
 
   const { user } = use(AuthContext);
-  const email = user?.email;
-  const accessToken = user?.accessToken;
-  console.log(accessToken);
+  const axiosSecure = useAxiosSecure();
 
   // Get all jobs
   useEffect(() => {
@@ -35,23 +34,18 @@ const JobsDataProvider = ({ children }) => {
   useEffect(() => {
     const fetchAllJobs = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/api/v1/user/${email}`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
-        const jobsData = response.data;
-        setUserJobsData(jobsData);
-        setLoading(false);
+        if (user?.email) {
+          const response = await axiosSecure.get(`/user/${user?.email}`);
+          const jobsData = await response.data;
+          setUserJobsData(jobsData);
+          setLoading(false);
+        }
       } catch (error) {
         console.log("Failed to fetch all jobs", error);
       }
     };
     fetchAllJobs();
-  }, [email, accessToken]);
+  }, [user, axiosSecure]);
 
   const data = { loading, jobsData, userJobsData };
 

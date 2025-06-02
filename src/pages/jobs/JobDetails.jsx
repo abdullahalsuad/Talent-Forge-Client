@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import JobDetailsCard from "../../components/all-jobs/JobDetailsCard";
-import JobDetailsSkeleton from "../../components/all-jobs/JobDetailsSkeleton";
+import JobDetailsCard from "../../components/job-details/JobDetailsCard";
+import JobDetailsSkeleton from "../../components/job-details/JobDetailsSkeleton";
+import JobDetailsCardLayout from "../../components/job-details/JobDetailsCardLayout";
 
 const JobDetails = () => {
   const [jobDetails, setJobDetails] = useState();
@@ -31,7 +32,7 @@ const JobDetails = () => {
       {isLoading ? (
         <JobDetailsSkeleton />
       ) : (
-        <JobDetailsCard jobDetails={jobDetails} />
+        <JobDetailsCardLayout jobDetails={jobDetails} />
       )}
     </>
   );
