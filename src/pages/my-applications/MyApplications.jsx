@@ -11,15 +11,13 @@ const MyApplications = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-
     const fetchMyApplicationsData = async () => {
       try {
         if (user?.email) {
           const response = await axios.get(
             `http://localhost:3000/api/v1/applied-jobs/${user?.email}`
           );
-          const myApplicationData = response.data;
+          const myApplicationData = await response.data;
           setMyApplications(myApplicationData);
           setLoading(false);
         }
@@ -47,10 +45,25 @@ const MyApplications = () => {
           </div>
 
           {/* Responsive Table Wrapper */}
+
           {loading ? (
             <ApplicationsTableSkeleton />
           ) : (
             <MyApplicationTable myApplications={myApplications} />
+          )}
+
+          {myApplications.length === 0 && (
+            <div className="text-center py-10">
+              <p className="text-gray-500">
+                You haven't applied to any jobs yet.
+              </p>
+              <Link
+                to="/add-job"
+                className="mt-4 inline-block text-indigo-600 hover:text-indigo-800 underline"
+              >
+                Apply Your First Job
+              </Link>
+            </div>
           )}
         </div>
       </div>

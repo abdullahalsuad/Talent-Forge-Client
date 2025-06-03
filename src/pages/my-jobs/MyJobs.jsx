@@ -21,8 +21,6 @@ const MyJobs = () => {
 
   // Handling delete
   const handleDelete = (id) => {
-    console.log(id);
-
     // alert
     Swal.fire({
       title: "Are you sure?",
@@ -154,7 +152,7 @@ const MyJobs = () => {
             <div className="text-center py-10">
               <p className="text-gray-500">You haven't posted any jobs yet.</p>
               <Link
-                to="/add-jobs"
+                to="/add-job"
                 className="mt-4 inline-block text-indigo-600 hover:text-indigo-800 underline"
               >
                 Post Your First Job

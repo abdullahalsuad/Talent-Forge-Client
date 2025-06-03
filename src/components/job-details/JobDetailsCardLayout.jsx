@@ -19,7 +19,9 @@ const JobDetailsCardLayout = ({ jobDetails }) => {
     // Collect data from jobDetails
     const jobId = jobDetails?._id;
     const creatorEmail = jobDetails?.creatorEmail;
-
+    const positionTitle = jobDetails?.positionTitle;
+    const companyName = jobDetails?.companyName;
+    const applicationDeadline = jobDetails?.applicationDeadline;
     // Collect user input values from the form elements
     const form = e.target;
     const formData = new FormData(form);
@@ -30,13 +32,25 @@ const JobDetailsCardLayout = ({ jobDetails }) => {
       applicantLoginEmail,
       jobId,
       creatorEmail,
+      positionTitle,
+      companyName,
+      applicationDeadline,
     };
 
     // applicant's data  SEND to backend
     try {
-      const response = await axiosSecure.post("/applicant", applicantData);
+      const applicantPostResponse = await axiosSecure.post(
+        "/applicant",
+        applicantData
+      );
 
-      if (response.statusText === "Created") {
+      // to update the Applicants
+      const response = await axiosSecure.patch(`/applicants/${jobId}`);
+
+      if (
+        applicantPostResponse.statusText === "Created" &&
+        response.statusText == "OK"
+      ) {
         e.target.reset();
         toast.success("Applied successfully");
         setIsModalOpen(false);

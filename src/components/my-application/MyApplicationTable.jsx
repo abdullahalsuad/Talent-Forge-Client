@@ -1,8 +1,6 @@
 import React from "react";
 
 const MyApplicationTable = ({ myApplications }) => {
-  console.log(myApplications);
-
   const formatDate = (isoDateString) => {
     const date = new Date(isoDateString);
     return date.toLocaleDateString("en-US", {
@@ -45,12 +43,12 @@ const MyApplicationTable = ({ myApplications }) => {
               <tr className=" transition" key={application._id}>
                 <td className="px-6 py-4 whitespace-nowrap text-center">
                   <div className="text-[16px] font-medium text-gray-800">
-                    Frontend Developer
+                    {application.positionTitle}
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-center">
                   <div className="text-[16px] font-medium text-gray-800">
-                    TechNova Inc.
+                    {application.companyName}
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-center">
@@ -60,7 +58,7 @@ const MyApplicationTable = ({ myApplications }) => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-center">
                   <div className="text-[16px] font-medium text-gray-800">
-                    Jun 1, 2025
+                    {formatDate(application.applicationDeadline)}
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-center">
