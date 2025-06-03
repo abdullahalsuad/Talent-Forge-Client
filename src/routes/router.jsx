@@ -10,7 +10,6 @@ import PostAJob from "../pages/post-jobs/PostAJob";
 import PrivateRoute from "./PrivateRoute";
 import JobDetails from "../pages/jobs/JobDetails";
 import AuthLayout from "../components/authentication/AuthLayout";
-import ApplyJob from "../components/job-apply/ApplyJob";
 
 const router = createBrowserRouter([
   {
@@ -40,14 +39,6 @@ const router = createBrowserRouter([
         ),
       },
 
-      {
-        path: "/apply/:id",
-        element: (
-          <PrivateRoute>
-            <ApplyJob />
-          </PrivateRoute>
-        ),
-      },
       {
         path: "/my-applications",
         element: (

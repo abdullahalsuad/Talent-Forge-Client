@@ -23,7 +23,7 @@ const PostAJob = () => {
     const jobData = {
       ...formValues,
       displayName,
-      email,
+      creatorEmail: email,
       salaryMin: Number(formValues.salaryMin),
       salaryMax: Number(formValues.salaryMax),
     };
@@ -34,7 +34,7 @@ const PostAJob = () => {
         "http://localhost:3000/api/v1/jobs",
         jobData
       );
-     
+
       if (!response.data._id) {
         throw new Error(`Server responded with status: ${response.status}`);
       }

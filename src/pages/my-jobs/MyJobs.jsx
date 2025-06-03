@@ -50,7 +50,7 @@ const MyJobs = () => {
   return (
     <>
       <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8 my-10">
-        <div className="max-w-7xl mx-auto">
+        <div className="min-w-full mx-auto">
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold text-gray-800">My Posted Jobs</h1>
             <Link
@@ -62,7 +62,7 @@ const MyJobs = () => {
           </div>
 
           {/* Responsive Table Wrapper */}
-          <div className="bg-white shadow-md rounded-lg border border-gray-200 overflow-x-auto">
+          <div className="bg-white shadow-md rounded-md border border-gray-200 overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-700 ">
                 <tr>

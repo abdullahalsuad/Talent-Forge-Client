@@ -25,9 +25,19 @@ const JobDetailsCard = ({ jobDetails, setIsModalOpen }) => {
           <div className="bg-white shadow-md rounded-lg border border-gray-200 overflow-hidden">
             {/* Header Section */}
             <div className="p-6 border-b border-gray-200">
-              <h1 className="text-2xl font-bold text-gray-800">
-                {jobDetails?.positionTitle}
-              </h1>
+              <div className="flex justify-between">
+                <h1 className="text-2xl font-bold text-gray-800">
+                  {jobDetails?.positionTitle}
+                </h1>
+
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="px-6 py-2 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-md cursor-pointer mt-4"
+                >
+                  Apply Now
+                </button>
+              </div>
+
               <div className="mt-1 flex items-center space-x-2">
                 <span className="text-gray-600">{jobDetails?.companyName}</span>
                 <span className="text-gray-400">•</span>
@@ -171,7 +181,7 @@ const JobDetailsCard = ({ jobDetails, setIsModalOpen }) => {
                   <div className="flex justify-center">
                     <button
                       onClick={() => setIsModalOpen(true)}
-                      className="px-6 py-2 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-md"
+                      className="px-6 py-2 bg-gray-800 hover:bg-gray-900 text-white font-medium rounded-md cursor-pointer"
                     >
                       Apply Now
                     </button>

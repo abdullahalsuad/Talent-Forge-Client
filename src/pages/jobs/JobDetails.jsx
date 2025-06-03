@@ -32,7 +32,7 @@ const JobDetails = () => {
       {isLoading ? (
         <JobDetailsSkeleton />
       ) : (
-        <JobDetailsCardLayout jobDetails={jobDetails} />
+        <JobDetailsCardLayout jobDetails={jobDetails}  />
       )}
     </>
   );
